@@ -5,13 +5,13 @@
 
 Je suis passé directement par le cloudshell AWS, parce que j'avais un compte AWS. (J'ai mis une carte temporaire !)
 
-1. J'ai créer un repertoire Terraform avec ces commande
+1. J'ai créé un repertoire Terraform avec ces commandes
 
 - mkdir mon_projet_terraform
 - cd mon_projet_terraform
 
 
-2. Dans ce repertoire, il y a un fichier qui a ete créer dans laquelle j'ai mis ce code
+2. Dans ce repertoire, j'ai créé un fichier dans laquelle j'ai mis ce code
 
 -  nano main.tf
 
@@ -27,7 +27,7 @@ instance_type = "t2.micro"
 }`
 ```
 
-3. Pour lancer l'EC2, il m'a suffit de taper ces trois commandes, et l'instance est lancé 
+3. Pour lancer l'EC2, il m'a suffit de taper ces trois commandes, et l'instance est lancée
 
 -  terraform init
 
