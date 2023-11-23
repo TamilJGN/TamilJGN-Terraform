@@ -1,23 +1,21 @@
-Terraform
-01_hello_terraform
-Installation de Terraform sur la CloudShell AWS :
+# Terraform - TP 23.11
 
-git clone https://github.com/tfutils/tfenv.git ~/.tfenv
 
-echo 'export PATH="$HOME/.tfenv/bin:$PATH"' >> ~/.bashrc
+## Hello_Terraform
 
-exec $SHELL
+Je suis passé directement par le cloudshell AWS, parce que j'avais un compte AWS. (J'ai mis une carte temporaire !)
 
-tfenv install latest
+1. J'ai créer un repertoire Terraform avec ces commande
 
-tfenv use 1.6.4
+- mkdir mon_projet_terraform
+- cd mon_projet_terraform
 
-https://github.com/DocteurSEO/terraform.git
 
-cd terraform/01_hello_terraform/
+2. Dans ce repertoire, il y a un fichier qui a ete créer dans laquelle j'ai mis ce code
 
-nano main.tf
+-  nano main.tf
 
+```
 // TODO Publier une petite instance AWS EC2
 provider "aws" {
  region = "eu-west-3"
@@ -26,7 +24,13 @@ provider "aws" {
 resource "aws_instance" "debian12" {
 ami           = "ami-087da76081e7685da"
 instance_type = "t2.micro"
-}
-terraform init
-terraform plan
-terraform apply
+}`
+```
+
+3. Pour lancer l'EC2, il m'a suffit de taper ces trois commandes, et l'instance est lancé 
+
+-  terraform init
+
+-  terraform plan
+
+-  terraform apply
