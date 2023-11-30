@@ -109,6 +109,9 @@ variable "nom_du_repo" {
 
 ```
 import subprocess
+import sys
+
+import subprocess
 subprocess.run(["terraform", "apply", "-auto-approve"])
 ```
 Résultat final : Voici le resultat que j'ai eu à la fin, et j'ai bine un repo qui a été créé
