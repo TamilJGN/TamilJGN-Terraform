@@ -71,3 +71,59 @@ resource "aws_subnet" "my_subnet" {
 -  terraform plan
 
 -  terraform apply
+
+## 06_hello_github
+
+1.  J'ai lancé les commande suivante comme vous demandé pour telecharger le terraform
+   
+Invoke-WebRequest -Uri "https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_windows_amd64.zip" -OutFile "terraform.zip"
+Expand-Archive -Path "terraform.zip" -DestinationPath "C:\Terraform"
+[System.Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Terraform", [System.EnvironmentVariableTarget]::User)
+
+2.  Voici le contenu de mon main.tf j'ai seulement le nom du repo
+
+```
+   provider "github" {
+  token = "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"
+}
+
+resource "github_repository" "mon_repo" {
+  name        = "ex6"
+  description = "Cree avec Terraform"
+  private     = true
+}
+```
+
+3.  Voici le contenu de mon variable.tf je n'ai rien changé dans ce fichier
+   
+   ``` 
+variable "nom_du_repo" {
+  description = "Nom du dépôt GitHub"
+  type        = string
+}
+```
+
+4. Voici le contenu de du script je n'ai rien changé non plus dans ce fichier
+
+```
+import subprocess
+subprocess.run(["terraform", "apply", "-auto-approve"])
+```
+Résultat final : Voici le resultat que j'ai eu à la fin, et j'ai bine un repo qui a été créé
+
+```
+Plan: 1 to add, 0 to change, 0 to destroy.
+github_repository.mon_repo: Creating...
+github_repository.mon_repo: Creation complete after 5s [id=ex6]
+╷
+│ Warning: "private": [DEPRECATED] use visibility instead
+│
+│   with github_repository.mon_repo,
+│   on main.tf line 5, in resource "github_repository" "mon_repo":
+│    5: resource "github_repository" "mon_repo" {
+│
+│ (and 2 more similar warnings elsewhere)
+╵
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```
