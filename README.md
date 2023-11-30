@@ -139,3 +139,35 @@ github_repository.mon_repo: Creation complete after 5s [id=ex6]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
+
+## 07_hello_Vultr
+
+Voici mon main.tf
+```
+terraform {
+  required_providers {
+    vultr = {
+      source = "vultr/vultr"
+    }
+  }
+}
+
+provider "vultr" {
+  api_key = "SILLVA2A6J3F6S4SKKSNXAPFNZFMWNFF2MRA"
+}
+
+resource "vultr_instance" "tamil" {
+  region = "fra"
+  plan = "vc2-1c-1gb"
+  image_id = "docker"
+
+  user_data = <<-EOF
+            #!/bin/bash
+            sudo apt-get update
+            sudo apt-get install -y docker.io
+            sudo systemctl start docker
+            sudo systemctl enable docker
+            EOF
+}
+```
+
