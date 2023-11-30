@@ -98,6 +98,7 @@ resource "github_repository" "mon_repo" {
 variable "nom_du_repo" {
  description = "Nom du dépôt GitHub"
  type        = string
+ default     = "test"
 }
 ```
 
