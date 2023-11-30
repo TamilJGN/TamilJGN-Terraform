@@ -75,10 +75,12 @@ resource "aws_subnet" "my_subnet" {
 ## 06_hello_github
 
 1.  J'ai lancé les commande suivante comme vous demandé pour telecharger le terraform
-   
+
+```
 Invoke-WebRequest -Uri "https://releases.hashicorp.com/terraform/1.0.0/terraform_1.0.0_windows_amd64.zip" -OutFile "terraform.zip"
 Expand-Archive -Path "terraform.zip" -DestinationPath "C:\Terraform"
 [System.Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Terraform", [System.EnvironmentVariableTarget]::User)
+```
 
 2.  Voici le contenu de mon main.tf j'ai seulement le nom du repo
 
@@ -96,7 +98,7 @@ resource "github_repository" "mon_repo" {
 
 3.  Voici le contenu de mon variable.tf je n'ai rien changé dans ce fichier
    
-   ``` 
+``` 
 variable "nom_du_repo" {
   description = "Nom du dépôt GitHub"
   type        = string
