@@ -85,14 +85,19 @@ Expand-Archive -Path "terraform.zip" -DestinationPath "C:\Terraform"
 2.  Voici le contenu de mon main.tf j'ai seulement le nom du repo
 
 ```
-   provider "github" {
+provider "github" {
   token = "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"
 }
 
 resource "github_repository" "mon_repo" {
-  name        = "ex6"
+  name        = var.nom_du_repo
   description = "Cree avec Terraform"
   private     = true
+}
+
+variable "nom_du_repo" {
+ description = "Nom du dépôt GitHub"
+ type        = string
 }
 ```
 
