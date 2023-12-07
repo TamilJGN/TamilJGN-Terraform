@@ -174,10 +174,31 @@ resource "vultr_instance" "tamil" {
 SQL : Katas
 
 Voici la requete pour afficher tous les livres empruntés en 2022
+
 ```
 SELECT Livres.*
 FROM Livres
 JOIN Emprunts ON Livres.id = Emprunts.id_livre
 WHERE EXTRACT(YEAR FROM date_emprunt) = 2022;
 ```
+![2023-12-07_10h33_35](https://github.com/TamilJGN/TamilJGN-Terraform/assets/93328111/459a4d96-9eb2-47b1-868c-3bc560eb4e0d)
+
+Voici la requête pour afficher le nombre total de livres empruntés.
+
+```
+SELECT COUNT(*) AS total_emprunts
+FROM Emprunts;
+```
+![2023-12-07_10h33_24](https://github.com/TamilJGN/TamilJGN-Terraform/assets/93328111/73b39f57-981c-45c8-9e9b-01edb9d628b1)
+
+
+Voici la requête pour afficher combien de fois chaque genre de livre a été emprunté.
+```
+SELECT Livres.genre, COUNT(*) AS total_emprunts_par_genre
+FROM Livres
+JOIN Emprunts ON Livres.id = Emprunts.id_livre
+GROUP BY Livres.genre;
+```
+![2023-12-07_10h33_10](https://github.com/TamilJGN/TamilJGN-Terraform/assets/93328111/b57b6832-ef33-4c99-9cc1-e06949c47564)
+
 
