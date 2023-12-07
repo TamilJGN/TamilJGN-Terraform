@@ -175,16 +175,9 @@ SQL : Katas
 
 Voici la requete pour afficher tous les livres empruntés en 2022
 ```
-select
-  livres.*
-from
-  livres
-  join emprunts on livres.id = emprunts.id_livre
-where
-  extract(
-    year
-    from
-      emprunts.date_emprunt
-  ) = 2022;
+SELECT Livres.*
+FROM Livres
+JOIN Emprunts ON Livres.id = Emprunts.id_livre
+WHERE EXTRACT(YEAR FROM date_emprunt) = 2022;
 ```
 
