@@ -171,7 +171,7 @@ resource "vultr_instance" "tamil" {
 }
 ```
 
-SQL : Katas
+## SQL : Katas
 
 Voici la requete pour afficher tous les livres empruntés en 2022
 
