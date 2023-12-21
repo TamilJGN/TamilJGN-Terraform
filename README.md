@@ -16,7 +16,7 @@ Je suis passé directement par le cloudshell AWS, parce que j'avais un compte AW
 -  nano main.tf
 
 ```
-// TODO Publier une petite instance AWS EC2
+
 provider "aws" {
  region = "eu-west-3"
 }
@@ -53,15 +53,15 @@ provider "aws" {
 }
 
 resource "aws_vpc" "my_vpc" {
-  cidr_block = "10.0.0.0/16" # Plage d'adresses IP pour le VPC
+  cidr_block = "10.0.0.0/16" 
   enable_dns_support = true
   enable_dns_hostnames = true
 }
 
 resource "aws_subnet" "my_subnet" {
   vpc_id                  = aws_vpc.my_vpc.id
-  cidr_block             = "10.0.1.0/24" # Plage d'adresses IP pour le subnet
-  availability_zone       = "us-west-2a" # Remplacez par votre zone de disponibilité préférée
+  cidr_block             = "10.0.1.0/24" 
+  availability_zone       = "us-west-2a" 
 }
 ```
 3. Pour lancer tous ça, il m'a suffit de taper encore une fois ces trois commandes, et le VPC et le subnet ont été créés
